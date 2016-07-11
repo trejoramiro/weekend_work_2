@@ -17,7 +17,7 @@
 class Superhero
 
   attr_reader :name, :hitpoints, :alive, :has_special_tool
-  attr_writer :alive, :hitpoints, :has_special_tool
+  attr_writer :hitpoints, :has_special_tool, :alive
 
   def initialize(input_options)
     @name = input_options[:name]
@@ -29,7 +29,18 @@ class Superhero
 
   def hit(superhero)
     superhero.hitpoints  = superhero.hitpoints - @attack
+    if superhero.hitpoints <= 0
+      superhero.hitpoints = 0
+      superhero.alive = false
+    end
   end
+
+  def grab_tool
+    @attack = @attack * 3
+    @has_special_tool = true
+  end
+
+
 end
 
 # Driver code - don't touch anything below this line.
