@@ -2,6 +2,40 @@
 
 def palindrome?(string)
 
+  starting_index = 0
+  ending_index = string.length - 1
+
+  is_palindrome = true
+
+  if (string.length == 1 )
+
+    is_palindrome = true
+
+  elsif (string.length.even?)
+    while (starting_index < ending_index)
+      if (string[starting_index] == string[ending_index])
+        starting_index = starting_index + 1
+        ending_index = ending_index - 1
+      else
+        is_palindrome = false
+        break
+      end
+    end
+
+  else
+    while (starting_index <= ending_index)
+      if (string[starting_index] == string[ending_index])
+        starting_index = starting_index + 1
+        ending_index = ending_index - 1
+      else
+        is_palindrome = false
+        break
+      end
+    end
+  end
+
+  return is_palindrome
+
 end
 
 # Driver code - don't touch anything below this line.
