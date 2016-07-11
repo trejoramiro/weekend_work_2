@@ -2,6 +2,20 @@
 
 def split_array(array, array_size)
 
+num_of_arrays = array.length / array_size
+split_array = []
+
+starting_index = 0
+ending_index = array_size - 1
+
+num_of_arrays.times do
+split_array << array[starting_index..ending_index]
+starting_index = starting_index + array_size
+ending_index = ending_index + array_size
+end
+
+return split_array
+
 end
 
 # Driver code - don't touch anything below this line.
